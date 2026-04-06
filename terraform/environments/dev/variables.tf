@@ -1,7 +1,7 @@
 variable "image" {
   description = "Docker image to deploy"
   type        = string
-  default     = "deadpool-app:latest"
+  default     = "nginx:latest"
 }
 
 variable "replicas" {
