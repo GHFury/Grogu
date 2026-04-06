@@ -22,6 +22,14 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
+      - name: Create kind cluster
+        uses: helm/kind-action@v1
+        with:
+          cluster_name: grogu-cluster
+
+      - name: Verify cluster access
+        run: kubectl cluster-info
+
       - name: Terraform Init
         run: terraform init
 
@@ -32,7 +40,8 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan
-        env:
-          KUBE_CONFIG_PATH: ${{ secrets.KUBE_CONFIG }}
+        run: terraform plan -out=tfplan
 
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve tfplan
