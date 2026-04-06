@@ -34,6 +34,6 @@ variable "environment_vars" {
 variable "image_pull_policy" {
   description = "Image pull policy"
   type        = string
-  default     = "Never"
+  default     = "IfNotPresent"
 }
 
