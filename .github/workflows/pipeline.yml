@@ -35,3 +35,4 @@ jobs:
         run: terraform plan
         env:
           KUBE_CONFIG_PATH: ${{ secrets.KUBE_CONFIG }}
+
