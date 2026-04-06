@@ -26,6 +26,7 @@ module "deployment" {
   namespace = module.namespace.name
   image     = var.image
   replicas  = var.replicas
+  container_port = 80
   environment_vars = {
     DD_SERVICE    = "deadpool-app"
     DD_ENV        = "dev"
@@ -37,6 +38,6 @@ module "service" {
   source      = "../../modules/service"
   name        = "deadpool-app"
   namespace   = module.namespace.name
-  port        = 8080
-  target_port = 8080
+  port        = 80
+  target_port = 80
 }
