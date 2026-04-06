@@ -25,6 +25,9 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      - name: Fix provider permissions
+        run: chmod -R +x .terraform/providers/
+
       - name: Terraform Validate
         run: terraform validate
 
