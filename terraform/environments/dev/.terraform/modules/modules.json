@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"deployment","Source":"../../modules/deployment","Dir":"../../modules/deployment"},{"Key":"namespace","Source":"../../modules/namespace","Dir":"../../modules/namespace"},{"Key":"service","Source":"../../modules/service","Dir":"../../modules/service"}]}

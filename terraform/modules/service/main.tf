@@ -1,0 +1,19 @@
+resource "kubernetes_service" "this" {
+  metadata {
+    name      = var.name
+    namespace = var.namespace
+  }
+
+  spec {
+    selector = {
+      app = var.name
+    }
+
+    port {
+      port        = var.port
+      target_port = var.target_port
+    }
+
+    type = "ClusterIP"
+  }
+}
