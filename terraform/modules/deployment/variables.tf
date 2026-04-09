@@ -37,3 +37,9 @@ variable "image_pull_policy" {
   default     = "IfNotPresent"
 }
 
+
+variable "health_check_path" {
+  description = "Path for liveness and readiness probes"
+  type        = string
+  default     = "/"
+}
